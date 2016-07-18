@@ -1,8 +1,13 @@
 package com.hom.junghan.demoinserttodb;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -16,31 +21,49 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText editTextName;
-    private EditText editTextAdd;
+    private LocationManager locationManager = null;
+
+    private EditText editTextLat;
+    private EditText editTextLon;
+
+    private String mLat, mLon;
+
+    private GpsInfo gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editTextName = (EditText) findViewById(R.id.name);
-        editTextAdd = (EditText) findViewById(R.id.address);
+        editTextLat = (EditText) findViewById(R.id.latitude);
+        editTextLon = (EditText) findViewById(R.id.longitude);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//화면 회전 세로로고정
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        gps = new GpsInfo(MainActivity.this);
+
+        Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+        startActivity(myIntent);
+
+        mLat = String.valueOf(gps.getLatitude());
+        mLon = String.valueOf(gps.getLongitude());
+    }
+
+    public void get_location(View view) {
+        editTextLat.setText(mLat);
+        editTextLon.setText(mLon);
     }
 
     public void insert(View view) {
-        String name = editTextName.getText().toString();
-        String address = editTextAdd.getText().toString();
+        String latitude = editTextLat.getText().toString();
+        String longitude = editTextLon.getText().toString();
 
-        insertToDatabase(name, address);
-
-
+        insertToDatabase(latitude, longitude);
     }
 
-    private void insertToDatabase(String name, String address) {
+    private void insertToDatabase(String latitude, String longitude) {
 
         class InsertData extends AsyncTask<String, Void, String> {
             ProgressDialog loading;
-
 
             @Override
             protected void onPreExecute() {
@@ -94,6 +117,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         InsertData task = new InsertData();
-        task.execute(name, address);
+        task.execute(latitude, longitude);
     }
 }

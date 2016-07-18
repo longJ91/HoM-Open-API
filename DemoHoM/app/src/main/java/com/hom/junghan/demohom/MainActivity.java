@@ -30,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
         task = new phpDown();
         txtView = (TextView) findViewById(R.id.txtView);
 
-        task.execute("http://52.78.19.78/HoM.php");//도메인을 실행하게되면 php가 실행되서 데이터전달이 일어난다.
-
-
+        task.execute("http://homcare.xyz/example/get_location_mobile");//도메인을 실행하게되면 php가 실행되서 데이터전달이 일어난다.
     }
 
     private class phpDown extends AsyncTask<String, Integer, String> {
@@ -73,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String str) {
             String id;
 
-            try {
+            //기존 JSON 예제 코드
+            /*try {
                 JSONObject root = new JSONObject(str);
                 JSONArray ja = root.getJSONArray("results"); //get the JSONArray which I made in the php file. the name of JSONArray is "results"
 
@@ -84,9 +83,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-            }
+            }*/
+
             txtView.setText("id : " + listitem.get(0).getData(0));
         }
+
+    }
+
+    public void showMap(String lat,String lon){
 
     }
 }
