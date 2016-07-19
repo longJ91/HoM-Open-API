@@ -60,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
         insertToDatabase(latitude, longitude);
     }
 
+    public void delete(View view) {
+        deleteFromDatabase();
+    }
+
     private void insertToDatabase(String latitude, String longitude) {
 
         class InsertData extends AsyncTask<String, Void, String> {
@@ -75,12 +79,12 @@ public class MainActivity extends AppCompatActivity {
             protected String doInBackground(String... params) {
 
                 try {
-                    String name = (String) params[0];
-                    String address = (String) params[1];
+                    String latitude = (String) params[0];
+                    String longitude = (String) params[1];
 
                     String link = "http://homcare.xyz/index.php/example/insert_location";
-                    String data = URLEncoder.encode("latitude", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");
-                    data += "&" + URLEncoder.encode("longtitude", "UTF-8") + "=" + URLEncoder.encode(address, "UTF-8");
+                    String data = URLEncoder.encode("latitude", "UTF-8") + "=" + URLEncoder.encode(latitude, "UTF-8");
+                    data += "&" + URLEncoder.encode("longitude", "UTF-8") + "=" + URLEncoder.encode(longitude, "UTF-8");
 
                     URL url = new URL(link);
                     URLConnection conn = url.openConnection();
@@ -118,5 +122,60 @@ public class MainActivity extends AppCompatActivity {
 
         InsertData task = new InsertData();
         task.execute(latitude, longitude);
+    }
+
+    private void deleteFromDatabase() {
+
+        class deleteData extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(MainActivity.this, "Please Wait", null, true, true);
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+
+                try {
+
+                    String link = "http://homcare.xyz/index.php/example/delete_location";
+
+                    URL url = new URL(link);
+                    URLConnection conn = url.openConnection();
+
+                    conn.setDoOutput(true);
+                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+
+                    wr.flush();
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    StringBuilder sb = new StringBuilder();
+                    String line = null;
+
+                    // Read Server Response
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                        break;
+                    }
+                    return sb.toString();
+                } catch (Exception e) {
+                    return new String("Exception: " + e.getMessage());
+                }
+
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+            }
+        }
+
+        deleteData task = new deleteData();
+        task.execute();
     }
 }

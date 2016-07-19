@@ -37,15 +37,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="get_location"
-        android:text="get location" />
+        android:text="get mobile location" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="insert"
-        android:text="Insert" />
+        android:text="Insert to server" />
 
+    <Button
+        android:id="@+id/btn_delete_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="delete"
+        android:text="DELETE from server" />
 
     <TextView
         android:id="@+id/result"
