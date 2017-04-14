@@ -147,6 +147,12 @@ public class HTTPClient {
             e.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param pid
+     * @param step
+     */
     public void sendStep(String pid, String step){
         String result ="";
         try {
