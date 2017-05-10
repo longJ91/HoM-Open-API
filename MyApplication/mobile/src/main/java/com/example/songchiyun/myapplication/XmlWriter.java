@@ -10,7 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
- * Created by chiyo on 2016-08-05.
+ *server로 부터 수신한 xml 데이터를 parsing하는 parser
  */
 public class XmlWriter {
     private String id;

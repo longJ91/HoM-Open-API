@@ -32,6 +32,7 @@ public class Http {
     public String getResult(){
         return result;
     }
+    //asyncTask를 통한 server와의 data 송수신
     public void insertToDatabase(String rate, String lat, String lng) {
         Log.d("http","http");
         this.heartRate = rate;

@@ -29,6 +29,10 @@ import android.bluetooth.BluetoothDevice;
  * @author Lorensius W. L. T <lorenz@londatiga.net>
  *
  */
+/**
+ * 아두이노에서 받아오는 센서데이터를 서버로 전송하는 역할을 맡은 activity
+ *
+ * */
 public class BLmode extends Activity {
 	private TextView mStatusTv;
 	private Button mActivateBtn;
@@ -40,7 +44,10 @@ public class BLmode extends Activity {
 	private ArrayList<BluetoothDevice> mDeviceList = new ArrayList<BluetoothDevice>();
 	
 	public static BluetoothAdapter mBluetoothAdapter;
-	
+	/**
+	 *
+	 * onCreate 시 버튼들에 대한 widget 설정
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,6 +77,7 @@ public class BLmode extends Activity {
 		if (mBluetoothAdapter == null) {
 			showUnsupported();
 		} else {
+			// bluetooth  parining click listener
 			mPairedBtn.setOnClickListener(new View.OnClickListener() {				
 				@Override
 				public void onClick(View v) {
@@ -90,7 +98,7 @@ public class BLmode extends Activity {
 					}
 				}
 			});
-			
+			// bluetooth scanning listener
 			mScanBtn.setOnClickListener(new View.OnClickListener() {				
 				@Override
 				public void onClick(View arg0) {
@@ -183,7 +191,7 @@ public class BLmode extends Activity {
 	private void showToast(String message) {
 		Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 	}
-	
+	// bluetooth scanning 후 결과값 receiver
 	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 	    public void onReceive(Context context, Intent intent) {	    	
 	        String action = intent.getAction();

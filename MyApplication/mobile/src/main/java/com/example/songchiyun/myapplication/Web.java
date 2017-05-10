@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+//login후 Hom web화면을 보여주는 activity
 public class Web extends AppCompatActivity {
     WebView browser;
     @Override

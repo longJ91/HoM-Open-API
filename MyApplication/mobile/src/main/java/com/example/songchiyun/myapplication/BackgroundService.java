@@ -224,6 +224,7 @@ public class BackgroundService extends Service implements LocationListener {
     public void onStatusChanged(String provider, int status, Bundle extras) { // needed by Interface. Not used
     }
 
+    //bpm과 arduino 에서 받아온 data를 가공해주는 receiver
     public class Receiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {

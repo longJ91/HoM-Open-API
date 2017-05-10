@@ -90,6 +90,7 @@ public class HTTPClient {
         }
         return result;
     }
+    //bluetooth 및 wearable에서 받아온 device의 data를 buffer 형식에 맞춰 가공 후 전송
     public void sendSensor(String pid){
         String result ="";
         try {
@@ -153,6 +154,7 @@ public class HTTPClient {
      * @param pid
      * @param step
      */
+    //bluetooth 및 wearable에서 받아온 device의 step data를 buffer 형식에 맞춰 가공 후 전송
     public void sendStep(String pid, String step){
         String result ="";
         try {
@@ -209,6 +211,7 @@ public class HTTPClient {
             e.printStackTrace();
         }
     }
+    //bluetooth 및 wearable에서 받아온 device의 ppg data를 buffer 형식에 맞춰 가공 후 전송
     public void sendPPG(String pid, String ppg){
         String result ="";
         try {

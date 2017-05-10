@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * Created by chiyo on 2016-08-09.
+ * network 상황을 판단하는 class
  */
 public class NetworkUtil {
     public static int TYPE_WIFI = 1;

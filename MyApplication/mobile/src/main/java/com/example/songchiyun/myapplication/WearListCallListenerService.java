@@ -11,6 +11,7 @@ import android.util.Log;
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
 
+//wearable에서 전송되는 데이터를 받아서 가공처리하는 service class
 public class WearListCallListenerService extends WearableListenerService {
 
     public static String SERVICE_CALLED_WEAR = "WearListClicked";

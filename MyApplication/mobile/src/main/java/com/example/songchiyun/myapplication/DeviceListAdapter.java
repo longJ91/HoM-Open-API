@@ -31,7 +31,7 @@ import java.util.concurrent.Executors;
 /**
  * Device list adapter.
  *
- * @author Lorensius W. L. T <lorenz@londatiga.net>
+ * bluetooth device 와 stream을 통한 data 송수신 adapter class
  *
  */
 public class DeviceListAdapter extends BaseAdapter {
@@ -120,6 +120,7 @@ public class DeviceListAdapter extends BaseAdapter {
 				}
 			}
 		});
+		// bluetooth device와의 data 송수신 및 전송
 		holder.connectBtn.setOnClickListener(new View.OnClickListener() {
 
 			@Override
