@@ -29,7 +29,7 @@ Samsung Galaxy Gear, Fitbit 등 다양한 착용형 디바이스를 이용한 �
 
 * * *
 
-##개발 성과
+## 개발 성과
 
 * * *
 
