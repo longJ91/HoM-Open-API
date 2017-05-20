@@ -1,33 +1,33 @@
 HoM Project
 ========
 
-## 개발 목표
+## Development Goals
 
-Samsung Galaxy Gear, Fitbit 등 다양한 착용형 디바이스를 이용한 헬스케어 관련 산업은 지속적으로 증가하고 있지만, 웨어러블 디바이스로부터 추출된 다양한 종류의 데이터들을 통합해서 보거나 분석하는 플랫폼이나 통합된 데이터를 기반으로 서비스하는 플랫폼이 많지 않다. 그래서 HoM Project를 통해서 다양한 종류의 데이터들을 통합하고 관리하는 Sensor manager와 통합된 데이터를 분석하는 Risk analyzer를 제공하는 플랫폼을 제안하여 헬스케어 산업에 발전을 도모하고 새로운 응용 방향에 대해서 고찰하고자 하였다.
+Samsung Galaxy Gear, and Fitbit, the healthcare related industries are continuously increasing. However, a platform for collecting and analyzing various kinds of data extracted from wearable devices or a platform for providing services based on integrated data Not much. Therefore, we propose a platform that provides a sensor manager that integrates and manages various kinds of data through the HoM Project and a risk analyzer that analyzes the integrated data, and develops the health care industry and examines the new application direction.
 
 
 ## Using Way
 
-1. LG G wacth와 안드로이드 스마트폰을 준비한다.
+1. Prepare LG G wacth and Android smartphone.
 
-2. LG G watch 와 안드로이드 스마트폰을 페어링 해주는 기능과 Sensor Manager 기능을 제공하는 HoM Appㄴ을 사용자의 스마트폰에 설치한다.
+2. Install the HoM App on the user's smartphone, which provides a function to pair the LG G watch with the Android smartphone and the Sensor Manager function.
 
-3. http://homcare.xyz/wordpress 에 접속하여 회원가입을 진행한다.
+3. Access http://homcare.xyz/wordpress and proceed with membership.
 
-4. 회원가입한 아이디를 이용해 스마트폰에서 로그인을 한다.
+4. Log in from your smartphone using your registered ID.
 
-5. HoM App과 LG G wacth를 페어링 한 후 LG G wacth를 사용하여 사용자의 건강 정보를 수집한다.
+5. Pair HoM App with LG G wacth and use LG G wacth to collect user's health information.
 
-6. Upload XML 메뉴에서 사용자가 XML 형식 파일로 자신의 건강 정보를 입력한다.
+6. In the Upload XML menu, the user enters his health information in an XML formatted file.
 
-7. 수집 불가한 데이터는 Input Form 메뉴에서 사용자가 직접 입력한다.
+7. Data that can not be collected is entered directly by the user in the Input Form menu.
 
-8. 수집된 건강 정보를 바탕으로 홈페이지에서 Graph 메뉴에서 정보를 확인 할 수 있다.
+8. Based on the collected health information, you can check the information on the Graph menu on the homepage.
 
-9. 건강 정보 데이터가 쌓인 후 사용자의 건강 상태를 Graph 메뉴에 존재 하는 SHOW RISK를 클릭 하여 결과를 도출한다.
+9. After the health information data is accumulated, click the SHOW RISK in the Graph menu to obtain the result.
 
 
-## 개발 성과
+## Development achievement
 
 
 ## Providing Open API
