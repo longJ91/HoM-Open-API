@@ -35,4 +35,4 @@ Samsung Galaxy Gear, and Fitbit, the healthcare related industries are continuou
 #### Web API
 
 * Parser API
-* Show Google Maps API
+* Maps API
